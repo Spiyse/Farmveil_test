@@ -7,7 +7,6 @@ function assets.load()
 
     assets.Sprinkler = love.graphics.newImage("assets/sprites/tile_stuff/sprinkler.png")
 
-
     assets.Button = love.graphics.newImage("assets/sprites/button/button.png")
     assets.ButtonActive = love.graphics.newImage("assets/sprites/button/button_active.png")
     assets.button = assets.Button
@@ -23,8 +22,7 @@ function assets.load()
             seed   = img("1 - " .. prettyName .. " Seed.png"),
             sprout = img("2 - " .. prettyName .. " Sprout.png"),
             mid    = img("3 - " .. prettyName .. " Mid.png"),
-            full   = img("4 - " .. prettyName .. " Full.png"),
-            wilt   = img("5 - " .. prettyName .. " Wilt.png")
+            full   = img("4 - " .. prettyName .. " Full.png")
         }
     end
 
@@ -35,7 +33,6 @@ function assets.load()
         pumpkin = loadCropSet("Pumpkin", "Pumpkin")
     }
 
-    assets.wheatImage = assets.cropSets.wheat.full
     assets.flagImage = love.graphics.newImage("assets/sprites/tile_stuff/flag.png")
     assets.TileHoverLock = love.graphics.newImage("assets/sprites/tile_stuff/lock.png")
     assets.TileHoverOutline = love.graphics.newImage("assets/sprites/tile_stuff/hover_tile_outline.png")

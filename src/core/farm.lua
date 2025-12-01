@@ -16,6 +16,7 @@ end
 
 function farm.load()
     farm.tiles = {}
+    farm.waterCooldown = 0
 
     for j = 1, config.GRID_HEIGHT do
         farm.tiles[j] = {}
@@ -57,6 +58,8 @@ function farm.getTile(i, j)
 end
 
 function farm.update(dt)
+    farm.waterCooldown = math.max(0, (farm.waterCooldown or 0) - dt)
+
     for j = 1, config.GRID_HEIGHT do
         for i = 1, config.GRID_WIDTH do
             if not gridUtils.isValidTile(i, j) then goto continue end
@@ -186,7 +189,7 @@ function farm.mousemoved(x, y, dx, dy)
     farm.hoverTileY = j
 end
 
--- tool actions
+
 function farm.useHoe(tile)
     if tile.sprinkler then
         audio.play("hoeDirt")
@@ -220,9 +223,10 @@ function farm.useSeed(tile)
 end
 
 function farm.useWater(tile)
-    if tile.state == "planted" then
-        tile.watered = true
-    end
+    if (farm.waterCooldown or 0) > 0 then return end
+    if tile.state ~= "planted" then return end
+    tile.watered = true
+    farm.waterCooldown = config.WATER_COOLDOWN
 end
 
 function farm.useHand(tile)

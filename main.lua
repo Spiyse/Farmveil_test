@@ -33,7 +33,6 @@ function love.load()
 
     camera.x, camera.y = 0, 0
 
-    hoverOver.load()
     hotbar.load()
     inventory.load()
     seedShop.load()

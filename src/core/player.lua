@@ -1,8 +1,8 @@
 local player = {}
 local config = require("src/config")
 
-player.coins = 2000
-player.seeds = {}
+player.coins = 10
+player.seeds = {wheat = 1 }
 player.crops = {}
 player.activeSeed = "wheat"
 player.sprinklers = 0

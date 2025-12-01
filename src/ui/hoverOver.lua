@@ -15,10 +15,6 @@ function hoverOver.init(farmModule)
     farm = farmModule
 end
 
-function hoverOver.load()
-    
-end
-
 function hoverOver.update(dt)
     mouseX, mouseY = love.mouse.getPosition()
 end
